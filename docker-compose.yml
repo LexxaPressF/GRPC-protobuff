@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  grpc-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./data:/app/data  # Указываем каталог для базы данных
+  grpc-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
